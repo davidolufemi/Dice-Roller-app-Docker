@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller App</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: 20px auto; text-align: center; }
+        .button { padding: 10px 20px; margin: 10px; cursor: pointer; }
+        .history { margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dice Roller App</h1>
+        <form action="/roll" method="post">
+            <label for="num_dice">Choose number of dice:</label><br>
+            <input type="radio" id="one" name="num_dice" value="1" {% if num_dice == '1' %}checked{% endif %}> 1 Die<br>
+            <input type="radio" id="two" name="num_dice" value="2" {% if num_dice == '2' %}checked{% endif %}> 2 Dice<br>
+            <button class="button" type="submit">Roll Dice</button>
+        </form>
+
+        <!-- Button to clear the history -->
+        <a href="/clear">
+            <button class="button" style="background-color: red; color: white;">Clear History</button>
+        </a>
+
+        <div class="history">
+            <h2>Roll History</h2>
+            <table border="1" cellspacing="0" cellpadding="10">
+                <tr><th>Timestamp</th><th>Dice Rolled</th></tr>
+                {% for roll in history %}
+                <tr>
+                    <td>{{ roll[3] }}</td>
+                    <td>{{ roll[2] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>
