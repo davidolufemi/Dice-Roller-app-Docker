@@ -10,6 +10,3 @@ services:
     #environment:
      # - FLASK_APP=app.py  # Set environment variables for Flask
     # - FLASK_ENV=development  # Run Flask in development mode
-  app:
-    image: davidayo97/diceapp:9a37339f01a99a57f077806da8892f82cf34f9ea   # Docker Hub image for your app
-    build: .
