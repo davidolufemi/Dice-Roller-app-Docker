@@ -13,8 +13,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set up Docker Compose
+        uses: docker/compose-cli-action@v0.1.1
+      - name: make the script executable
+        run: sudo chmod +x /usr/local/bin/docker-compose  
       - name: Build Docker image
-        run:  docker-compose build 
+        run:  docker-compose build -t dice-app:latest .
 
 
       - name: Tag Docker image
