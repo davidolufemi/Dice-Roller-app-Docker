@@ -1,12 +1,15 @@
-version: '3.8'
+version: '3'
 
 services:
   web:
     build: .  # Build the Flask app image from the Dockerfile in the current directory
     ports:
-      - "5000:5000"  # Expose port 5000 to access the app from the host machine
+      - "8000:8000"  # Expose port 8000 to access the app from the host machine
     volumes:
       - .:/app  # Mount the current directory to /app in the container
-    environment:
-      - FLASK_APP=app.py  # Set environment variables for Flask
-      - FLASK_ENV=development  # Run Flask in development mode
+    #environment:
+     # - FLASK_APP=app.py  # Set environment variables for Flask
+    # - FLASK_ENV=development  # Run Flask in development mode
+  app:
+    image: davidayo97/diceapp:9a37339f01a99a57f077806da8892f82cf34f9ea   # Docker Hub image for your app
+    build: .
