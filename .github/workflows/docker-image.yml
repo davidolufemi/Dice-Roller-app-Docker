@@ -24,7 +24,7 @@ jobs:
 
 
       - name: Tag Docker image
-        run: docker tag dice-app:latest davidayo97/diceapp:${GITHUB_SHA}
+        run: docker tag dice-roller-app_web:latest  davidayo97/diceapp:${GITHUB_SHA}
 
       - name: Show Docker images
         run: docker images
