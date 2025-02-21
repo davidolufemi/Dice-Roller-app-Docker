@@ -19,6 +19,8 @@ jobs:
         run: sudo chmod +x /usr/local/bin/docker-compose  
       - name: Build Docker image
         run:  docker-compose build
+      - name: Show Docker images
+        run: docker images
 
 
       - name: Tag Docker image
